@@ -27,14 +27,16 @@ modules:
           - name: cct_module
             git:
                 url: https://github.com/jboss-openshift/cct_module.git
-                ref: 0.37.1
+                ref: openj9
           - name: jboss-eap-7-image
             git:
-                url: https://github.com/jboss-container-images/jboss-eap-7-image.git
-                ref: EAP_724_CR2
+                # url: https://github.com/jboss-container-images/jboss-eap-7-image.git
+                # ref: EAP_724_CR2
+                url: https://github.com/luck3y/jboss-eap-7-image.git
+                ref: eap72-openj9-11
       install:
           - name: jboss.container.openjdk.jdk
-            version: '8'
+            version: 'openj9-8'
           - name: eap-7.2-latest
           - name: sso
             version: '1.0'
@@ -53,7 +55,3 @@ run:
           - "0.0.0.0"
           - "-c"
           - "standalone.xml"
-osbs:
-      repository:
-            name: containers/redhat-sso-7
-            branch: jb-sso-7.3-rhel-7

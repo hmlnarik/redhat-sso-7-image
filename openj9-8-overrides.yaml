@@ -1,0 +1,31 @@
+modules:
+  install:
+  - name: jboss.container.java.rm-openjdk
+
+osbs:
+    repository:
+        name: containers/redhat-sso-7
+        branch: private-hmlnarik-jb-sso-7.3-rhel-7-openj9
+
+    configuration:
+        container:
+            compose:
+                pulp_repos: true
+
+            platforms:
+                only:
+                - s390x
+
+    #koji_target: rhaos-3.11-rhel-7-candidate
+    koji_target: jb-sso-7.3-rhel-7-containers-candidate
+    #koji_target: rhaos-middleware-rhel-7-containers-candidate
+    #koji_target: jb-openjdk-1.8-openshift-rhel-7-containers-candidate
+
+
+packages:
+  repositories:
+    - name: scl
+      rpm: ~
+    - name: openj9
+      url:
+
